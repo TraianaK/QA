@@ -29,6 +29,11 @@ class ExamUploadPic(unittest.TestCase):
         pic.clear()
         pic.send_keys("/home/traiana/Desktop/HW_2/QA/testing/Screenshot from 2019-01-08 22-54-09.png")
 
+        screen = driver.save_screenshot("/home/traiana/Desktop/HW_2/QA/testing/screenshot_exam.png")
+        page_content = driver.page_source
+        
+        self.assertIn("data:image/png;base64",page_content)
+
     def test_excel_document(self):
         driver = self.driver
         driver.get("https://mdn.mozillademos.org/files/3698/image_upload_preview.html")
